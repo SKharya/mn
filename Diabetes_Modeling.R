@@ -68,8 +68,9 @@ test_set = subset(diabetes, split == FALSE)
 library(rpart)
 classifier = rpart(formula = Outcome ~ ., data = training_set, method = "class")
 classifier
-plot(classifier)
-text(x = diabetes)
+plot(classifier, margin=0.1)
+text(classifier, use.n=TRUE, pretty=TRUE, cex=0.8)
+
 ?rpart
 pred = predict(classifier, newdata = test_set[-9]
                ,type = 'class')
